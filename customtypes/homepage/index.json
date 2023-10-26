@@ -1,25 +1,23 @@
 {
-  "id": "landing",
-  "label": "landing",
+  "id": "homepage",
+  "label": "Homepage",
   "format": "page",
-  "repeatable": true,
+  "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "uid": {
+      "title": {
+        "type": "Text",
         "config": {
-          "label": "UID"
-        },
-        "type": "UID"
+          "label": "Title",
+          "placeholder": ""
+        }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "text_block": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             }

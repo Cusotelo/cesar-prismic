@@ -8,3 +8,6 @@ export async function GET(request: NextRequest) {
 
   return await redirectToPreviewURL({ client, request });
 }
+
+// Define Route Handler
+// API Endpoint to use on app
