@@ -25,7 +25,7 @@ const routes: prismic.ClientConfig["routes"] = [
   },
   {
   	type: "events",
-  	path: "/:uid",
+  	path: "/events/:uid",
   },
   {
   	type: "careers",

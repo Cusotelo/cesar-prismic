@@ -1,6 +1,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import Container from "@/components/container/Container";
 
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 
@@ -8,7 +9,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
   const alignment = slice.variation === "alignLeft" ? "left" : "center";
 
   return (
-    <section
+    <Container
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="es-bounded es-call-to-action"
@@ -124,7 +125,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           }
         `}
       </style>
-    </section>
+    </Container>
   );
 };
 
