@@ -1,4 +1,5 @@
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -18,6 +19,9 @@ const Text = ({ slice }: TextProps): JSX.Element => {
     >
 
       <PrismicRichText field={slice.primary.title} />
+      <PrismicNextImage field={slice.primary.image} />
+
+
       Placeholder component for text (variation: {slice.variation}) Slices
 
       <style>

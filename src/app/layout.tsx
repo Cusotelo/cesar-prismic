@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const settings = await client.getSingle("settings")
+  const navigation = await client.getSingle("navigation")
 
   return {
-    title: settings.data.site_title,
-    description: settings.data.meta_description
+    title: navigation.data.site_title,
+    description: navigation.data.meta_description
   }
 }
 

@@ -1,46 +1,32 @@
 {
-  "id": "settings",
-  "label": "Settings",
+  "id": "events",
+  "label": "Events",
   "format": "page",
-  "repeatable": false,
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
-      "site_title": {
-        "type": "Text",
+      "uid": {
         "config": {
-          "label": "Site Title",
-          "placeholder": ""
-        }
-      },
-      "navigation": {
-        "type": "Group",
-        "config": {
-          "label": "Navigation",
-          "fields": {
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
-            },
-            "label": {
-              "type": "Text",
-              "config": {
-                "label": "Label",
-                "placeholder": ""
-              }
-            }
-          }
-        }
+          "label": "UID"
+        },
+        "type": "UID"
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "text": {
+              "type": "SharedSlice"
+            },
+            "hero": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
