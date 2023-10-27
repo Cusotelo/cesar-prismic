@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  accordion: dynamic(() => import("./Accordion")),
   call_to_action: dynamic(() => import("./CallToAction")),
+  features: dynamic(() => import("./Features")),
   hero: dynamic(() => import("./Hero")),
   text: dynamic(() => import("./Text")),
 };

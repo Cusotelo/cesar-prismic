@@ -3,6 +3,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 import Container from "@/components/container/Container";
+import Button from "@/components/button/Button";
 
 /**
  * Props for `Hero`.
@@ -19,10 +20,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <PrismicRichText field={slice.primary.heading} />
+      
       <PrismicRichText field={slice.primary.body} />
-      <PrismicNextLink field={slice.primary.button_link}>
+
+      <Button field={slice.primary.button_link}>
         {slice.primary.button_text}
-      </PrismicNextLink>
+      </Button>
+      
       <PrismicNextImage field={slice.primary.image} />
 
     </Container>

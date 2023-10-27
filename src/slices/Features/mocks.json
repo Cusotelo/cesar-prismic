@@ -1,0 +1,74 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Every"
+						}
+					}
+				]
+			},
+			"dark": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"color": {
+				"__TYPE__": "FieldContent",
+				"value": "#a3eb9c",
+				"type": "Color"
+			},
+			"backgeround": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"id": "mock_Media_link",
+					"kind": "image/jpeg",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"__TYPE__": "FileLink"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "Three"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Eiusmod reprehenderit irure pariatur anim nostrud fugiat minim anim consequat aliquip qui tempor."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

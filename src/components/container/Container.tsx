@@ -1,24 +1,30 @@
 // import cn from 'classnames';
 import styles from './Container.module.scss';
+import clsx from 'clsx';
 
 type ContainerProps = {
     as?: React.ElementType;
     className?: string;
+    dark?: boolean;
     children: React.ReactNode;
 }
 
 export default function Container({
-    as: Comp = "section",
+    as: Section = "section", //override parent elm
     className,
     children,
-    ...restProps
+    dark,
+    ...restProps //any other props
 }: ContainerProps){
 
     return (
-        <Comp className={styles.container} {...restProps}>
-            <div className={styles.section}>
-                {children}
+        <Section className={styles.section} {...restProps}>
+            <div className={clsx(styles.container, className, dark, "hello", "more")}>
+                <div className={dark ? styles.dark : ''}>
+                    {children}
+                </div>
             </div>
-        </Comp>
+        </Section>
     )
 }
+

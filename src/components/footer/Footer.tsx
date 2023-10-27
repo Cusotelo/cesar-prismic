@@ -3,6 +3,7 @@ import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './Footer.module.scss'
 import Container from '../container/Container';
+import Button from '../button/Button';
 
 
 export default async function Footer() {
@@ -16,9 +17,9 @@ export default async function Footer() {
                 <ul>
                     {footer.data.navigation.map(({ link, label }) => (
                         <li key={label}>
-                            <PrismicNextLink field={link}>
+                            <Button field={link}>
                             {label}
-                            </PrismicNextLink>
+                            </Button>
                         </li>
                     ))}
                 </ul>

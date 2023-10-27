@@ -1,9 +1,10 @@
 .footer {
     padding: 5rem 0;
     background-color: blue;
+    color: white;
     ul {
-        background-color: red;
-        color: white;
+        display: flex;
         list-style: none;
+        justify-content: space-evenly;
     }
 }

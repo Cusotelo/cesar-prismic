@@ -1,7 +1,15 @@
-.container {
+.section {
     max-width: 1500px;
     margin: 0 auto;
-    .section {
+    .container {
         padding: 5rem 0;
+    }
+    .horizontal {
+        display: flex;
+        align-items: center;
+    }
+    .dark {
+        background-color: black;
+        color: white;
     }
 }

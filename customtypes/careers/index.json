@@ -17,13 +17,16 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "accordion": {
+              "type": "SharedSlice"
+            },
             "call_to_action": {
               "type": "SharedSlice"
             },
-            "text": {
+            "hero": {
               "type": "SharedSlice"
             },
-            "hero": {
+            "text": {
               "type": "SharedSlice"
             }
           }

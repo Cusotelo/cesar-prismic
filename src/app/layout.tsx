@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className='font'>
         <Header />
-        {children}
+          {children}
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>

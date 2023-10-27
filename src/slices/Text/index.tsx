@@ -13,15 +13,31 @@ export type TextProps = SliceComponentProps<Content.TextSlice>;
  */
 const Text = ({ slice }: TextProps): JSX.Element => {
   return (
-    <Container
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
+    <>
+      {slice.variation === "default" && (
+        <Container
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+        >
+          <PrismicRichText field={slice.primary.title} />
+          <PrismicNextImage field={slice.primary.image} />
 
-      <PrismicRichText field={slice.primary.title} />
-      <PrismicNextImage field={slice.primary.image} />
+        </Container>
+      )}
 
-    </Container>
+
+      {slice.variation === "horizontal" && (
+        <Container
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="horizontal"
+          dark={true}
+        >
+          <PrismicRichText field={slice.primary.title} />
+          <PrismicNextImage field={slice.primary.image} />
+        </Container>
+      )}
+    </>
   );
 };
 

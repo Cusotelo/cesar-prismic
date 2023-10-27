@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type CareersDocumentDataSlicesSlice = CallToActionSlice | TextSlice | HeroSlice;
+type CareersDocumentDataSlicesSlice =
+  | AccordionSlice
+  | CallToActionSlice
+  | HeroSlice
+  | TextSlice;
 
 /**
  * Content for Careers documents
@@ -372,7 +376,11 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = CallToActionSlice | TextSlice | HeroSlice;
+type PageDocumentDataSlicesSlice =
+  | FeaturesSlice
+  | CallToActionSlice
+  | TextSlice
+  | HeroSlice;
 
 /**
  * Content for Page documents
@@ -441,6 +449,36 @@ export type AllDocumentTypes =
   | HomepageDocument
   | NavigationDocument
   | PageDocument;
+
+/**
+ * Default variation for Accordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccordionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Accordion*
+ */
+type AccordionSliceVariation = AccordionSliceDefault;
+
+/**
+ * Accordion Shared Slice
+ *
+ * - **API ID**: `accordion`
+ * - **Description**: Accordion
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AccordionSlice = prismic.SharedSlice<
+  "accordion",
+  AccordionSliceVariation
+>;
 
 /**
  * Primary content in *CallToAction → Primary*
@@ -598,6 +636,107 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Features → Primary*
+ */
+export interface FeaturesSliceDefaultPrimary {
+  /**
+   * Heading field in *Features → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * dark field in *Features → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: features.primary.dark
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  dark: prismic.BooleanField;
+
+  /**
+   * color field in *Features → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+
+  /**
+   * backgeround field in *Features → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.backgeround
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  backgeround: prismic.LinkToMediaField;
+}
+
+/**
+ * Primary content in *Features → Items*
+ */
+export interface FeaturesSliceDefaultItem {
+  /**
+   * Title field in *Features → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *Features → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Features Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturesSliceDefaultPrimary>,
+  Simplify<FeaturesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Features*
+ */
+type FeaturesSliceVariation = FeaturesSliceDefault;
+
+/**
+ * Features Shared Slice
+ *
+ * - **API ID**: `features`
+ * - **Description**: Features
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSlice = prismic.SharedSlice<
+  "features",
+  FeaturesSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -686,12 +825,12 @@ export interface TextSliceDefaultPrimary {
   /**
    * Title field in *Text → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: text.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField;
+  title: prismic.TitleField;
 
   /**
    * Image field in *Text → Primary*
@@ -718,9 +857,47 @@ export type TextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Text → Primary*
+ */
+export interface TextSliceHorizontalPrimary {
+  /**
+   * Title field in *Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Image field in *Text → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * horizontal variation for Text Slice
+ *
+ * - **API ID**: `horizontal`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextSliceHorizontal = prismic.SharedSliceVariation<
+  "horizontal",
+  Simplify<TextSliceHorizontalPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Text*
  */
-type TextSliceVariation = TextSliceDefault;
+type TextSliceVariation = TextSliceDefault | TextSliceHorizontal;
 
 /**
  * Text Shared Slice
@@ -760,20 +937,30 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AccordionSlice,
+      AccordionSliceVariation,
+      AccordionSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceAlignLeftPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceAlignLeft,
+      FeaturesSlice,
+      FeaturesSliceDefaultPrimary,
+      FeaturesSliceDefaultItem,
+      FeaturesSliceVariation,
+      FeaturesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
+      TextSliceHorizontalPrimary,
       TextSliceVariation,
       TextSliceDefault,
+      TextSliceHorizontal,
     };
   }
 }
