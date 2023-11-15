@@ -1,0 +1,162 @@
+@charset "utf-8";
+@use "sass:math";
+//----------------------------------------------------------------------------//
+//  IMPORTS
+//----------------------------------------------------------------------------//
+//  Files paths should be written so they are relative to either of the 
+//  following folders:  
+//      •   src/scss
+//      •   node_modules (for styles inside of NPM packages)
+//
+//  The location of node_modules is set with the 
+//  basePath.nodeModules key in gulpfile.js
+//----------------------------------------------------------------------------//
+
+@import
+    //------------------------------------------------------------------------//
+    //  CUSTOM FUNCTIONS and MIXINS
+    //------------------------------------------------------------------------//
+    "02-elements/utilities/function-rem-to-unitless-px", 
+    "02-elements/utilities/function-strip-unit",        
+    "02-elements/utilities/mixin-calcrem",              
+    "02-elements/utilities/mixin-responsive-typo",      
+    
+    //------------------------------------------------------------------------//
+    //  SITE THEME VARIABLES
+    //------------------------------------------------------------------------//
+    "01-vendor-overrides/bootstrap/variables",
+    
+    //------------------------------------------------------------------------//
+    //  BOOTSTRAP FUNCTIONS/MIXINS/VARIABLES/UTILITIES
+    //------------------------------------------------------------------------//
+    "bootstrap/scss/functions",
+    "bootstrap/scss/mixins",
+    "bootstrap/scss/variables",
+    "bootstrap/scss/variables-dark",
+    "bootstrap/scss/maps",
+    "bootstrap/scss/utilities";
+    
+//--------------------------------------------------------------------//
+//  Remove unused Bootstrap colors to save on css file size (~3k/color)
+//--------------------------------------------------------------------//
+// $theme-colors: map-remove($theme-colors, "success", "info", "warning", "light", "dark");
+// $colors: map-remove($colors, "blue", "indigo", "purple", "pink", "orange", "yellow", "green", "teal", "cyan");
+
+//----------------------------------------------------------------------------//
+// CORE BOOTSTRAP PARTIALS
+//----------------------------------------------------------------------------//
+
+@import
+    "bootstrap/scss/root",
+    "bootstrap/scss/reboot",
+    "bootstrap/scss/type",
+    "bootstrap/scss/images",
+    "bootstrap/scss/containers",
+    "bootstrap/scss/grid",
+    "bootstrap/scss/tables",
+    "bootstrap/scss/forms",
+    "bootstrap/scss/buttons",
+    "bootstrap/scss/transitions",
+    "bootstrap/scss/dropdown",
+    "bootstrap/scss/button-group",
+    "bootstrap/scss/nav",
+    "bootstrap/scss/navbar",
+    "bootstrap/scss/card",
+    "bootstrap/scss/accordion",
+    "bootstrap/scss/breadcrumb",
+    "bootstrap/scss/pagination",
+    "bootstrap/scss/badge",
+    "bootstrap/scss/alert",
+    "bootstrap/scss/progress",
+    "bootstrap/scss/list-group",
+    "bootstrap/scss/close",
+    "bootstrap/scss/toasts",
+    "bootstrap/scss/modal", 
+    "bootstrap/scss/tooltip",
+    "bootstrap/scss/popover",
+    "bootstrap/scss/carousel",
+    "bootstrap/scss/spinners",
+    "bootstrap/scss/offcanvas",
+    "bootstrap/scss/placeholders",
+
+    "bootstrap/scss/helpers",
+
+    //----------------------------------------------------------------------------//
+    // CORE SWIPER PARTIALS
+    // •   To use, uncomment swiper-vars.scss and swiper.scss
+    //      • Also recommended to uncomment navigation.scss for arrows and pagination.scss for dots
+    //----------------------------------------------------------------------------//
+    // "swiper/swiper-vars.scss",
+    // "swiper/swiper.scss",
+
+    // "swiper/modules/a11y/a11y.scss",
+    // "swiper/modules/autoplay/autoplay.scss",
+    // "swiper/modules/controller/controller.scss",
+    // "swiper/modules/effect-cards/effect-cards.scss",
+    // "swiper/modules/effect-coverflow/effect-coverflow.scss",
+    // "swiper/modules/effect-creative/effect-creative.scss",
+    // "swiper/modules/effect-cube/effect-cube.scss",
+    // "swiper/modules/effect-fade/effect-fade.scss",
+    // "swiper/modules/effect-flip/effect-flip.scss",
+    // "swiper/modules/free-mode/free-mode.scss",
+    // "swiper/modules/grid/grid.scss",
+    // "swiper/modules/hash-navigation/hash-navigation.scss",
+    // "swiper/modules/history/history.scss",
+    // "swiper/modules/keyboard/keyboard.scss",
+    // "swiper/modules/lazy/lazy.scss",
+    // "swiper/modules/manipulation/manipulation.scss",
+    // "swiper/modules/mousewheel/mousewheel.scss",
+    // "swiper/modules/navigation/navigation.scss",
+    // "swiper/modules/pagination/pagination.scss",
+    // "swiper/modules/parallax/parallax.scss",
+    // "swiper/modules/scrollbar/scrollbar.scss",
+    // "swiper/modules/thumbs/thumbs.scss",
+    // "swiper/modules/virtual/virtual.scss",
+    // "swiper/modules/zoom/zoom.scss",
+    
+    //------------------------------------------------------------------------//
+    //  NPM MANAGED VENDOR STYLES
+    //  •   Stylesheets found w/in packages being maintained via npm (node_modules)
+    //  •   Pathing is relative to the base node_modules folder
+    //------------------------------------------------------------------------//
+    // "aos/src/sass/aos.scss",
+
+
+    //------------------------------------------------------------------------//
+    //  VENDOR OVERRIDES
+    //  •   To override core Bootstrap styles: 
+    //      •   Create a new file with the same file name as the scss partial 
+    //          containing the styles you want to override in the 
+    //          `01-vendor-overrides` folder
+    //      •   Include the new partial path below
+    //      •   Copy and edit the styles you want to edit to the new file
+    //------------------------------------------------------------------------//
+    
+    //------------------------------------------------------------------------//
+    //  ELEMENTS UTILITY LIBRARY
+    //------------------------------------------------------------------------//
+    "02-elements/variables",
+    "02-elements/borders",
+    "02-elements/color",
+    "02-elements/cursor",
+    "02-elements/max-width",
+    "02-elements/opacity",
+    "02-elements/positioning",
+    "02-elements/text-variants",
+    "02-elements/type-scale",
+
+    //------------------------------------------------------------------------//
+    //  SITE STYLES
+    //  •   All custom site styles should be added to the `02-site` folder
+    //------------------------------------------------------------------------//
+    "03-site/font-face",
+    
+    //------------------------------------------------------------------------//
+    //  UTILITY API
+    //------------------------------------------------------------------------//
+    "bootstrap/scss/utilities/api"
+
+    //------------------------------------------------------------------------//
+    //  MANUALLY MANAGED VENDOR STYLES
+    //------------------------------------------------------------------------//
+;

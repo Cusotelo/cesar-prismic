@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------------//
+// POSITION UTITLITIES - CENTERING ELEMENTS
+//  - Default position utility values are declared in a Sass map in the variables.scss 
+//----------------------------------------------------------------------------//
+$utilities: map-merge(
+    $utilities, 
+    (
+        "position": map-merge(
+            map-get($utilities, "position"),
+            ( responsive: $enable-responsive-positioning )
+        ),
+        "top": map-merge(
+            map-get($utilities, "top"),
+            ( responsive: $enable-responsive-centering-elements )
+        ),
+        "bottom": map-merge(
+            map-get($utilities, "bottom"),
+            ( responsive: $enable-responsive-centering-elements )
+        ),
+        "start": map-merge(
+            map-get($utilities, "start"),
+            ( responsive: $enable-responsive-centering-elements )
+        ),
+        "end": map-merge(
+            map-get($utilities, "end"),
+            ( responsive: $enable-responsive-centering-elements )
+        ),
+        "translate-middle": map-merge(
+            map-get($utilities, "translate-middle"),
+            ( responsive: $enable-responsive-centering-elements )
+        ),
+    )
+);

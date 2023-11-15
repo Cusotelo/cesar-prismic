@@ -19,7 +19,7 @@ export default function Container({
 
     return (
         <Section className={styles.section} {...restProps}>
-            <div className={clsx(styles.container, className, dark, "hello", "more")}>
+            <div className={clsx(styles.container, className, dark, "row", "more")}>
                 <div className={dark ? styles.dark : ''}>
                     {children}
                 </div>

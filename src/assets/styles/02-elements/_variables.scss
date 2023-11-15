@@ -1,0 +1,81 @@
+//----------------------------------------------------------------------------//
+// BORDERS
+//----------------------------------------------------------------------------//
+$enable-responsive-border-classes:          true !default;
+$enable-responsive-border-radius-classes:   true !default;
+//----------------------------------------------------------------------------//
+// COLORS
+//----------------------------------------------------------------------------//
+$enable-responsive-color-classes:           true !default;
+$enable-responsive-bg-color-classes:        true !default;
+$enable-gray-color-classes:                 true !default;
+$enable-gray-bg-color-classes:              true !default;
+$enable-responsive-inverted-color-classes:  true !default;
+// Inverted Text Colors
+$body-color-inverted:                       $white !default;
+$link-color-inverted:                       $white !default;
+$link-hover-color-inverted:                 $white !default;
+//----------------------------------------------------------------------------//
+// CURSORS
+//----------------------------------------------------------------------------//
+$enable-responsive-cursors: true !default;
+//----------------------------------------------------------------------------//
+// MAX WIDTH
+//----------------------------------------------------------------------------//
+$enable-responsive-mw-classes:  true !default;
+//----------------------------------------------------------------------------//
+// OPACITY
+//----------------------------------------------------------------------------//
+$enable-responsive-opacity-classes: true !default;
+//----------------------------------------------------------------------------//
+// POSITIONING
+//----------------------------------------------------------------------------//
+$enable-responsive-positioning: true;
+$enable-responsive-centering-elements: true;
+//----------------------------------------------------------------------------//
+// Text Variants
+//----------------------------------------------------------------------------//
+$enable-text-variants: true;
+$enable-text-variants-responsive-sizes: true;
+
+$letter-spacing-body: inherit !default;
+$letter-spacing-heading: inherit !default;
+$word-spacing-body: inherit !default;
+$word-spacing-heading: inherit !default;
+
+$text-styles: (
+    h1: (min: 48, max: 64),
+    h2: (min: 30, max: 36),
+    h3: (min: 20, max: 24),
+    h4: (min: 18, max: 22),
+    body: (min: 14, max: 16)
+);
+    
+$text-sizes: (
+    xs: 0.35,
+    sm: 0.5,
+    base: 1,
+    lg: 1.5,
+    xl: 1.75
+);
+//----------------------------------------------------------------------------//
+//  TYPE SCALE 
+//  - https://type-scale.com/
+//----------------------------------------------------------------------------//
+$enable-type-scale:                 true;
+$enable-type-scale-debug-values:    false; // hide or show map values  from displaying in terminal when compiling
+// Scales - These are global standards. Do not change
+$scale-minor-second:        1.067 !default;
+$scale-major-second:        1.125 !default;
+$scale-minor-third:         1.200 !default;
+$scale-major-third:         1.250 !default;
+$scale-perfect-fourth:      1.333 !default;
+$scale-augmented-fourth:    1.414 !default;
+$scale-perfect-fifth:       1.5 !default;
+$scale-golden-ratio:        1.618 !default;
+// Options
+$type-scale:                $scale-major-third !default;    // Select preferred scale from Type Scales section above
+$type-scale-base-font-size: remToUnitlessPx($font-size-base) !default;
+$type-scale-larger-sizes:   5 !default;     // Number of larger sizes above base to create
+$type-scale-smaller-sizes:  2 !default;     // Number of smaller sizes below base to create
+$type-scale-mobile-scale:   .8 !default;    // Sizes larger than base will use responsive typography. How much smaller should the mobile sizes be?

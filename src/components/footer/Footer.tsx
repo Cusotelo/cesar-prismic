@@ -1,4 +1,4 @@
-import { createClient } from '@/prismicio';
+import { createClient } from 'prismicio';
 import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import styles from './Footer.module.scss'

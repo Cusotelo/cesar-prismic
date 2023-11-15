@@ -1,7 +1,7 @@
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Container from "@/components/container/Container";
+import Container from "components/container/Container";
 
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 

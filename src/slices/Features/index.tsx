@@ -1,6 +1,6 @@
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import Container from "@/components/container/Container";
+import Container from "components/container/Container";
 
 /**
  * Props for `Features`.

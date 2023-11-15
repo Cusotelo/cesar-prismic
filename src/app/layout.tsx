@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PrismicPreview } from '@prismicio/next';
-import { createClient, repositoryName } from '@/prismicio';
+import { createClient, repositoryName } from 'prismicio';
 import './globals.css';
-import Header from '@/components/header/Header';
-import Footer from '@/components/footer/Footer';
-
+import Header from 'components/header/Header';
+import Footer from 'components/footer/Footer';
+import 'assets/styles/style.scss';
 const inter = Inter({ subsets: ['latin'] })
 
 

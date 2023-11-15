@@ -1,0 +1,76 @@
+//----------------------------------------------------------------------------//
+//  Function - CREATE FONT SIZE MAP ITEM
+//----------------------------------------------------------------------------//
+@function create-font-size-map-item($size, $min, $max) {
+    $map: (
+        min: $min,
+        max: $max
+    );
+    @return $map;
+}
+
+@if $enable-type-scale == true {
+    // Set desktop scale to 1
+    $type-scale-desktop-scale:  1 !default;
+    // Set up blank variables for font size maps
+    $font-sizes-small: () !default; // no touch
+    $font-sizes-large: () !default; // no touch
+    
+    //------------------------------------------------------------------------//
+    //  CREATE MAPS (large and small) OF FONT SIZES USING THE TYPE SCALE
+    //------------------------------------------------------------------------//
+    @for $i from 0 to $type-scale-smaller-sizes + 1 {
+        @if $i > 0 {
+            $map: ();
+            $map: map-merge($map, ($i: create-font-size-map-item(base, $type-scale-base-font-size * $type-scale-mobile-scale, $type-scale-base-font-size * $type-scale-mobile-scale)));
+            $type-scale-mobile-scale: calc($type-scale-mobile-scale / $type-scale);
+            $font-sizes-small: map-merge($font-sizes-small, $map);
+        }
+    }
+    
+    @for $i from 0 to $type-scale-larger-sizes + 1 {
+        $map: ();
+        $map: map-merge($map, ($i: create-font-size-map-item($i, $type-scale-base-font-size * $type-scale-desktop-scale, $type-scale-base-font-size * $type-scale-desktop-scale)));
+        $type-scale-desktop-scale: calc($type-scale-desktop-scale * $type-scale);
+        $font-sizes-large: map-merge($font-sizes-large, $map);
+    }
+    
+    //------------------------------------------------------------------------//
+    // CREATE `text-{$size}` UTILITY CLASSES
+    //  eg. <div class='type-scale-3'>...</div>
+    //  eg. <div class='type-scale-base'>...</div>
+    //  eg. <div class='type-scale-n1'>...</div>
+    //------------------------------------------------------------------------//
+    // SMALL
+    @each $size, $value in $font-sizes-small {
+        $scale-size: map-get($font-sizes-small, $size);
+        .type-scale-n#{$size},
+        .type-scale-n#{$size} p {
+            font-size: calcRem(map-get(map-get($font-sizes-small, $size), min));
+        }
+    }
+    //LARGE
+    @each $size, $value in $font-sizes-large {
+        $scale-size: map-get($font-sizes-large, $size);
+        @if $size == 0 {
+            .type-scale-base,
+            .type-scale-base p{
+                font-size: calcRem(map-get(map-get($font-sizes-large, $size), min));
+            }    
+        }
+        @else {
+            .type-scale-#{$size},
+            .type-scale-#{$size} p {
+                @include r-font-size((calc(map-get(map-get($font-sizes-large, $size), min) / $type-scale)), map-get(map-get($font-sizes-large, $size), max));
+            }
+            
+        }
+    }
+    //------------------------------------------------------------------------//
+    // Show final map views in terminal 
+    //------------------------------------------------------------------------//
+    @if $enable-type-scale-debug-values == true {
+        @debug map-values($font-sizes-large);
+        @debug map-values($font-sizes-small);
+    }
+}

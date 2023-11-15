@@ -1,0 +1,74 @@
+$utilities: map-merge(
+    $utilities, 
+    (
+        "border": map-merge(
+            map-get($utilities, "border"),
+            ( responsive: $enable-responsive-border-classes )
+        ),
+        "border-top": map-merge(
+            map-get($utilities, "border-top"),
+            ( responsive: $enable-responsive-border-classes )
+        ),
+        "border-end": map-merge(
+            map-get($utilities, "border-end"),
+            ( responsive: $enable-responsive-border-classes )
+        ),
+        "border-bottom": map-merge(
+            map-get($utilities, "border-bottom"),
+            ( responsive: $enable-responsive-border-classes )
+        ),
+        "border-start": map-merge(
+            map-get($utilities, "border-start"),
+            ( responsive: $enable-responsive-border-classes )
+        )
+    )
+);
+
+$utilities: map-merge(
+    $utilities,  (
+        "rounded": map-merge(
+            map-get($utilities, "rounded"),
+            ( responsive: $enable-responsive-border-radius-classes)
+        ),
+        "rounded-top": map-merge(
+            map-get($utilities, "rounded-top"),
+            (
+                responsive: $enable-responsive-border-radius-classes,
+                values: map-merge(
+                    map-get(map-get($utilities, "rounded-top"), "values"),
+                    (0: 0)
+                )
+            )
+        ),
+        "rounded-end": map-merge(
+            map-get($utilities, "rounded-end"),
+            (
+                responsive: $enable-responsive-border-radius-classes,
+                values: map-merge(
+                    map-get(map-get($utilities, "rounded-end"), "values"),
+                    (0: 0)
+                )
+            )
+        ),
+        "rounded-bottom": map-merge(
+            map-get($utilities, "rounded-bottom"),
+            (
+                responsive: $enable-responsive-border-radius-classes,
+                values: map-merge(
+                    map-get(map-get($utilities, "rounded-bottom"), "values"),
+                    (0: 0)
+                )
+            )
+        ),
+        "rounded-start": map-merge(
+            map-get($utilities, "rounded-start"),
+            (
+                responsive: $enable-responsive-border-radius-classes,
+                values: map-merge(
+                    map-get(map-get($utilities, "rounded-start"), "values"),
+                    (0: 0)
+                )
+            )
+        )
+    ),
+);

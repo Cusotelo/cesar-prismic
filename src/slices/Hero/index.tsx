@@ -2,8 +2,8 @@ import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
-import Container from "@/components/container/Container";
-import Button from "@/components/button/Button";
+import Container from "components/container/Container";
+import Button from "components/button/Button";
 
 /**
  * Props for `Hero`.

@@ -1,0 +1,50 @@
+//--------------------------------------------------------------------//
+//  01. INVERT TEXT COLOR
+//--------------------------------------------------------------------//
+.text-invert {
+    color: $body-color-inverted;
+
+    a {
+        color: $link-color-inverted;
+        &:hover {
+            color: $link-hover-color-inverted;
+        }
+    }
+}
+
+$utilities: map-merge(
+    $utilities, (
+        //--------------------------------------------------------------------//
+        //  RESPONSIVE COLORS
+        //--------------------------------------------------------------------//
+        "color": map-merge(
+            map-get($utilities, "color"),
+            ( responsive: $enable-responsive-color-classes )
+        ),
+        //--------------------------------------------------------------------//
+        //  CREATE `text-` CLASSES FOR GRAYS
+        //--------------------------------------------------------------------//
+        "text-gray": (
+            responsive: $enable-gray-color-classes,
+            property: color,
+            class: text-gray,
+            values: ($grays)
+        ),
+        //--------------------------------------------------------------------//
+        //  RESPONSIVE BACKGROUND COLORS
+        //--------------------------------------------------------------------//
+        "background-color": map-merge(
+            map-get($utilities, "background-color"),
+            ( responsive: $enable-responsive-bg-color-classes )
+        ),
+        //--------------------------------------------------------------------//
+        //  CREATE `bg-` CLASSES FOR GRAYS
+        //--------------------------------------------------------------------//
+        "bg-gray": (
+            responsive: $enable-gray-bg-color-classes,
+            property: background-color,
+            class: bg-gray,
+            values: ($grays)
+        ),
+    )
+);

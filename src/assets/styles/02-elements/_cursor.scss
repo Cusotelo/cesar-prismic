@@ -1,0 +1,11 @@
+$utilities: map-merge(
+    $utilities,
+    (
+        "cursor": (
+        property: cursor,
+        class: c,
+        responsive: $enable-responsive-cursors,
+        values: default pointer grab,
+        )
+    )
+);

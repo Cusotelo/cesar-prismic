@@ -1,4 +1,4 @@
-import { createClient } from "@/prismicio";
+import { createClient } from "prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import styles from './Header.module.scss' 
 import Container from "../container/Container";
