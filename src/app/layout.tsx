@@ -7,6 +7,7 @@ import Header from 'components/header/Header';
 import Footer from 'components/footer/Footer';
 import 'assets/styles/style.scss';
 const inter = Inter({ subsets: ['latin'] })
+import ImportBsJS from "components/importBsJS";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='font'>
+        {/* <ImportBsJS /> */}
         <Header />
           {children}
         <Footer />
